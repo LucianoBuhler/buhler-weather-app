@@ -6,7 +6,7 @@ import snowy from "../assets/images/sunny.png";
 import loadingGif from '../assets/images/loading.gif'
 
 // load env variables 
-const OPENWEATHER_API_KEY_LB = import.meta.env.VITE_OPENWEATHER_API_KEY_LB
+const OPENWEATHER_API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY
 
 const WeatherApp = () => {
   const [data, setData] = useState({})
@@ -18,7 +18,7 @@ const WeatherApp = () => {
     setIsLoading(true)
     const defaultLocation = 'Porto Alegre'
     const locationAux = location.trim() !== '' ? location : defaultLocation
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${locationAux}&units=metric&appid=${OPENWEATHER_API_KEY_LB}`
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${locationAux}&units=metric&appid=${OPENWEATHER_API_KEY}`
     const res = await fetch(url)
     const weatherData = await res.json()
     // console.log(weatherData);
